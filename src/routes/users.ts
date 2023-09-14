@@ -6,10 +6,10 @@ export async function usersRoutes(app: FastifyInstance) {
     app.get('/users', async () => {
         const user = await prisma.user.findMany({
 
-            orderBy: { //ORDENA O RETORNO EM ORDEM ALFABÉTICA asc(crescente) || desc(decrescente)
-                // name: "asc" ,
-                id: "asc"
-            },
+            // orderBy: { //ORDENA O RETORNO EM ORDEM ALFABÉTICA asc(crescente) || desc(decrescente)
+            //     // name: "asc" ,
+            //     id: "asc"
+            // },
 
             // where: {//CONDICIONA O RETORNO AO ID: 2
             //     id: 2
@@ -105,7 +105,6 @@ export async function usersRoutes(app: FastifyInstance) {
     app.post('/users/cadastro', async (request) => {
         try{
             const {name, email, password} = userSchema.parse(request.body);
-
             const newUser = await prisma.user.create({
                 data: {   
                     name,
@@ -114,7 +113,6 @@ export async function usersRoutes(app: FastifyInstance) {
                 }
             });
             return `Usuário criado com sucesso, id:${newUser.id}`;
-
         } catch (error) {
             console.error('Error ao criar user', error);
             throw new Error('Erro  ao criar o usuario');
