@@ -71,6 +71,8 @@ export async function usersRoutes(app: FastifyInstance) {
         }
     });
 
+
+    // CADASTRANDO O USER
     app.post('/users/cadastro', async (request) => {
         const data = new Date();
         const userSchema = z.object({
@@ -126,14 +128,12 @@ export async function usersRoutes(app: FastifyInstance) {
         });
         try {
             const { email_user, password_user } = loginSchema.parse(request.body);
-
             const user = await prisma.user.findFirst({
                 where: {
                     email_user,
                 }
-
             });
-
+            //ATUALIZANDO O ÚLTIMO ACESSO DO USER NA APLICAÇÃO
             const update_acess = await prisma.user.update({
                 where: {
                     email_user: email_user,
@@ -142,14 +142,12 @@ export async function usersRoutes(app: FastifyInstance) {
                     last_acess: date
                 }
             });
-
             if (!user) {
                 return {
                     error: 'Credenciais inválidas, verifique os dados.'
                 };
             }
             const isPasswordValid = await bcrypt.compare(password_user, user.password_user);
-
             if (!isPasswordValid) {
                 return {
                     error: 'Credenciais inválidas, verifique os dados.'
@@ -168,10 +166,4 @@ export async function usersRoutes(app: FastifyInstance) {
             throw new Error('Erro ao fazer login');
         }
     });
-
-
-
-
-    //CADASTRANDO O USER
-
 }
