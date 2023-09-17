@@ -30,4 +30,34 @@
 
 
 
+###### Opções de Parametros Get ######
+        // orderBy: { //ORDENA O RETORNO EM ORDEM ALFABÉTICA asc(crescente) || desc(decrescente)
+        //     // name: "asc" ,
+        //     id: "asc"
+        // },
+
+        // where: {//CONDICIONA O RETORNO AO ID: 2
+        //     id: 2
+        // },
+
+        // select: { //ESPECIFICA QUAIS CAMPOS SERÃO RETORNADOS DA TABELA: BOOL
+        //     id: true,
+        //     name: true
+
+        // },
+
+        // skip: 2, // Pula os primeiros 2 registros
+        // take: 3,  // Retorna apenas 3 registros
+
+        // cursor: {
+        //     id: 2 //começa a consulta a partir do registro com id 2
+        // },
+
+        // distinct: ['name'], // Retorna nomes de usuários distintos
+
+        // groupBy: {
+        //     name: true, // Agrupa os resultados pelo campo "name"
+        //   }
+
+
 

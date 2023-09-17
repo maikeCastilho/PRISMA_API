@@ -11,10 +11,11 @@ datasource db {
 }
 
 model User {
-  id Int @id @default(autoincrement())
-  name String
-  email String
-  password String
+  id_user Int @id @default (autoincrement())
+  token_user String @unique
+  name_user String
+  email_user String @unique
+  password_user String
 
   @@map("User")
 
