@@ -16,6 +16,8 @@ model User {
   name_user String
   email_user String @unique
   password_user String
+  register_date DateTime
+  last_acess DateTime
 
   @@map("User")
 
