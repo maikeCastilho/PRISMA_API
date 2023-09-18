@@ -82,7 +82,6 @@ export async function usersRoutes(app: FastifyInstance) {
             password_user: z.string(),
             register_date: z.string(),
             last_acess: z.string(),
-
         });
         try {
             const { name_user, email_user, password_user } = userSchema.parse(request.body);
@@ -124,7 +123,6 @@ export async function usersRoutes(app: FastifyInstance) {
         const loginSchema = z.object({
             email_user: z.string(),
             password_user: z.string(),
-
         });
         try {
             const { email_user, password_user } = loginSchema.parse(request.body);
