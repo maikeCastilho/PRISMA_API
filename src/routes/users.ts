@@ -7,6 +7,8 @@ export async function usersRoutes(app: FastifyInstance) {
     const jwt = require('jsonwebtoken');
     const { v4: uuidv4 } = require('uuid');
     const bcrypt = require('bcrypt');
+    
+    app.register(usersRoutes, { prefix: '/' });
 
     //BUSCANDO TODOS OS USERS
     app.get('/users', async () => {
