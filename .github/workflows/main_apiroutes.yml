@@ -52,5 +52,5 @@ jobs:
         with:
           app-name: 'apiroutes'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_ED1B5FA159D34FA3BCE26B9984A6DF1C }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_A5B4391416524B7A9CA1B9263952F8CD }}
           package: .
