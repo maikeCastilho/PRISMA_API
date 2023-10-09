@@ -1,14 +1,13 @@
 import { FastifyInstance } from "fastify";
 import { prisma } from '../lib/prisma'
-import { date, z } from 'zod'
+import { z } from 'zod'
 import { Prisma } from "@prisma/client";
 
 export async function usersRoutes(app: FastifyInstance) {
     const jwt = require('jsonwebtoken');
     const { v4: uuidv4 } = require('uuid');
     const bcrypt = require('bcrypt');
-    
-    app.register(usersRoutes, { prefix: '/' });
+   
 
     //BUSCANDO TODOS OS USERS
     app.get('/users', async () => {
@@ -117,6 +116,7 @@ export async function usersRoutes(app: FastifyInstance) {
         }
     });
 
+    
 
 
     //LOGANDO O USER

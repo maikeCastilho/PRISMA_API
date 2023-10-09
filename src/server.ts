@@ -9,3 +9,4 @@ app.listen({
 }).then(()=> {
     console.log('HTTP server rodando na http://localhost:3333')
 })
+
